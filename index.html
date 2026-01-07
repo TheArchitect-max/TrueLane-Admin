@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEUS V1 | TrueLaneStudio Secure Gateway</title>
+    <style>
+        body { font-family: 'Courier New', monospace; background: #0a0a0a; color: #00ff44; text-align: center; padding: 50px; }
+        .container { max-width: 800px; margin: auto; background: #111; padding: 40px; border: 2px solid #00ff44; border-radius: 15px; box-shadow: 0 0 20px #00ff44; }
+        .btc-addr { background: #000; padding: 15px; border: 1px dashed #00ff44; margin: 20px 0; font-size: 1.1em; color: #f7931a; word-break: break-all; }
+        .status { margin: 20px 0; padding: 15px; font-weight: bold; text-transform: uppercase; border: 1px solid #f7931a; color: #f7931a; }
+        .btn { background: #00ff44; color: #000; border: none; padding: 20px 40px; font-weight: bold; cursor: pointer; font-size: 1.2em; border-radius: 5px; }
+        #output { display: none; text-align: left; background: #000; padding: 20px; margin-top: 30px; border: 1px solid #00ff44; white-space: pre-wrap; font-size: 0.8em; color: #00ff44; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>DEUS V1 NEURAL INTERFACE</h1>
+    <p>PROPERTY OF TRUELANESTUDIO | GLOBAL ACCESS PROTOCOL</p>
+    <div class="btc-addr">
+        PAYMENT REQUIRED: $535.00 (0.008 BTC)<br>
+        bc1q4548uc9n2gz5lmnkz5z07x5gkj7avnedhukj7t
+    </div>
+    <div id="status" class="status">⚡ MONITORING BLOCKCHAIN...</div>
+    <button class="btn" onclick="verifyPayment()">I HAVE PAID - UNLOCK V1</button>
+    <div id="output"></div>
+</div>
+
+<script>
+    // THE MOTHERCODE IS STORED SECURELY HERE
+    const motherCode = `YOUR_PYTHON_CODE_HERE`;
+
+    async function verifyPayment() {
+        const addr = "bc1q4548uc9n2gz5lmnkz5z07x5gkj7avnedhukj7t";
+        const statusEl = document.getElementById('status');
+        const outputEl = document.getElementById('output');
+        statusEl.innerText = "🔍 SCANNING LEDGER...";
+        try {
+            const res = await fetch(`https://blockchain.info/rawaddr/${addr}`);
+            const data = await res.json();
+            if (data.total_received >= 800000) { // 0.008 BTC
+                statusEl.innerText = "✅ PAYMENT VERIFIED - ACCESS GRANTED";
+                statusEl.style.color = "#00ff44";
+                outputEl.innerText = motherCode;
+                outputEl.style.display = "block";
+            } else {
+                statusEl.innerText = "❌ TRANSACTION NOT FOUND YET";
+            }
+        } catch (e) { statusEl.innerText = "⚠️ ERROR CONNECTING TO NETWORK"; }
+    }
+</script>
+</body>
+</html>
