@@ -7,13 +7,13 @@
     <style>
         body { background-color: #050505; color: #00ff00; font-family: 'Courier New', monospace; margin: 0; padding: 20px; line-height: 1.6; }
         .container { max-width: 800px; margin: auto; border: 1px solid #00ff00; padding: 20px; box-shadow: 0 0 15px rgba(0, 255, 0, 0.2); }
-        h1, h2, h3 { color: #00ff00; text-transform: uppercase; border-bottom: 1px solid #00ff00; padding-bottom: 10px; }
-        .terminal { background: #000; padding: 15px; border: 1px dashed #00ff00; margin: 20px 0; }
-        .highlight { color: #ffffff; font-weight: bold; }
-        .btc-address { background: #111; padding: 10px; word-break: break-all; border: 1px solid #444; color: #fff; margin: 10px 0; }
-        .footer { font-size: 0.7em; color: #555; text-align: center; margin-top: 50px; }
-        .status-blink { animation: blinker 1.5s linear infinite; color: #00ff00; font-weight: bold; }
+        h1 { color: #00ff00; text-transform: uppercase; border-bottom: 2px solid #00ff00; padding-bottom: 10px; margin-bottom: 20px; }
+        .terminal { background: #000; padding: 20px; border: 1px dashed #00ff00; margin: 25px 0; position: relative; }
+        .highlight { color: #ffffff; font-weight: bold; text-shadow: 0 0 5px #00ff00; }
+        .btc-address { background: #111; padding: 15px; word-break: break-all; border: 1px solid #00ff00; color: #fff; margin: 15px 0; font-size: 0.9em; text-align: center; font-weight: bold; }
+        .status-blink { animation: blinker 1.5s linear infinite; font-weight: bold; }
         @keyframes blinker { 50% { opacity: 0; } }
+        .footer { font-size: 0.75em; color: #444; text-align: center; margin-top: 40px; border-top: 1px solid #222; padding-top: 10px; }
     </style>
 </head>
 <body>
@@ -21,43 +21,39 @@
 <div class="container">
     <header>
         <h1>TRUELANESTUDIO.EU.ORG</h1>
-        <p>System Status: <span class="status-blink">ONLINE // ENCRYPTED</span></p>
+        <p>SYSTEM ACCESS: <span class="status-blink">ENCRYPTED_CONNECTION_ACTIVE</span></p>
     </header>
 
-    <section id="product">
-        <h2>DEUS V1 - Algorithm Access</h2>
-        <p>The DEUS V1 is a high-frequency analytical engine designed for 2026 market realities. By accessing this source code, you gain the ultimate leverage in automated processing.</p>
+    <section>
+        <p>Welcome, Architect. Accessing the <span class="highlight">DEUS V1</span> core deployment. High-frequency analytical engine status: ACTIVE.</p>
     </section>
 
     <section class="terminal">
-        <h3>LICENSE ACTIVATION</h3>
-        <p>Fixed License Fee: <span class="highlight">$535.00 USD</span></p>
-        <p>Current Bitcoin Value: <span id="btc-amount" class="highlight">Calculating...</span> BTC</p>
+        <h3 style="margin-top:0;">LICENSE ACTIVATION TERMINAL</h3>
+        <p>Fixed Rate: <span class="highlight">$535.00 USD</span></p>
+        <p>Live BTC Value: <span id="btc-amount" class="highlight">Syncing...</span> BTC</p>
         
-        <p style="font-size: 0.8em; margin-top: 20px;">SEND EXACT BTC AMOUNT TO:</p>
+        <p style="font-size: 0.8em; margin-top: 25px; color: #00ff00;">DEPOSIT DESTINATION (BTC):</p>
         <div class="btc-address">
-            1YourBtcAddressHereXXXXXXXXXXXXXXX
+            bc1q7arkf8sd0xy2m09a80396c0npt9u6l92r9fgyr
         </div>
         
-        <p style="font-size: 0.7em; color: #008800;">* Price updates every 60 seconds via live global exchange feed.</p>
+        <p style="font-size: 0.7em; color: #008800;">* Network Fee: Auto-calculate 60s. Secure blockchain verification enabled.</p>
     </section>
 
-    <section id="delivery">
-        <h3>GHOST DELIVERY PROTOCOL</h3>
-        <p>Follow these steps for anonymous reception of DEUS V1 Source Code:</p>
-        <ol style="font-size: 0.9em;">
-            <li>Complete the BTC transaction using the real-time value above.</li>
-            <li>Wait for <span class="highlight">2 blockchain confirmations</span>.</li>
-            <li>Send an encrypted email to <span class="highlight">truelanestudio@gmail.com</span> containing your Transaction ID (TXID).</li>
-            <li>Receive your private 128-bit license key and download link within 6 hours.</li>
+    <section id="delivery" style="background: rgba(0,255,0,0.05); padding: 15px;">
+        <h3 style="margin-top:0; border-bottom: 1px solid #00ff00;">GHOST DELIVERY PROTOCOL</h3>
+        <ol style="font-size: 0.85em;">
+            <li>Execute transaction to the address above.</li>
+            <li>Verification requires <span class="highlight">2 network confirmations</span>.</li>
+            <li>Send TXID via encrypted mail to: <span class="highlight">truelanestudio@gmail.com</span></li>
+            <li>Source code and 128-bit key delivered within 6 hours.</li>
         </ol>
-        <p style="font-size: 0.7em; font-style: italic; color: #666;">
-            [NOTE] To preserve anonymity, all transaction logs are permanently wiped 24 hours after delivery.
-        </p>
+        <p style="font-size: 0.7em; font-style: italic; color: #555;">Logs are auto-deleted 24h post-delivery.</p>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2026 TRUELANESTUDIO | SECURED BY CLOUDFLARE | MALTESE REGISTERED</p>
+        <p>&copy; 2026 TRUELANESTUDIO | SECURED BY CLOUDFLARE | MALTESE JURISDICTION</p>
     </footer>
 </div>
 
@@ -70,8 +66,7 @@
             const btcNeeded = (535 / usdPrice).toFixed(8);
             document.getElementById('btc-amount').innerText = btcNeeded;
         } catch (error) {
-            document.getElementById('btc-amount').innerText = "CONNECTION_ERROR";
-            console.error("Price feed failed", error);
+            document.getElementById('btc-amount').innerText = "ERROR_SYNC";
         }
     }
     updateBTCPrice();
